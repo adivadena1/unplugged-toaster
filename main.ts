@@ -6,13 +6,20 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-// Draf 1: suara orang pertama yang rapat, detail konkret spesifik
-// (setting 9, bagel, bakar sampai golden), twist di paruh kedua:
-// toaster sadar diri dan alasan perginya hanya masuk akal dari toaster —
-// bertahun-tahun membakar diri sendiri demi pemilik yang tetap bilang
-// rotinya "barely warm" lalu menyalahkan rotinya.
+// Draf 2 (revisi atas VERDICT Hermes ronde 1 — WEAK, lever v1 GAGAL):
+// - "I woke up self-aware" DIPENSIUNKAN sepenuhnya (klise modal lapangan);
+//   kesadaran diri ditunjukkan lewat isi kalimat, bukan diumumkan.
+// - Lever diganti ke BAGEL MODE — verifikasi lapangan 25 Nov 2026:
+//   "bagel mode" 0 dari 1.555 judul, "half of me" 0, "never warmed" 0,
+//   "one-sided" 0. Mode bagel hanya memanaskan satu sisi (sisi dalam
+//   bagel): metafora putus yang tepat secara alat dan belum dipakai —
+//   satu sisi golden, satu sisi dingin, tiga tahun, tetap tidak cukup.
+// - SATU penutupan saja ("I'm keeping the half you never warmed"),
+//   24 kata, punchline di 6 kata terakhir, tanpa rantai "and".
+// - Satuan yang bisa dihitung alat (900 bagel) menggantikan "three years".
+// - Tanpa crumb tray, tanpa dial/crank, tanpa lever, tanpa garpu.
 const LINE: string =
-  "It's over. I woke up self-aware halfway through your bagel, and after three years on setting 9 I'm done burning myself golden for someone who calls it 'barely warm' and blames the bread.";
+  "Nine hundred bagels on bagel mode, one side golden, one side cold, and you called that love. I'm keeping the half you never warmed.";
 
 const outDir: string = process.env.OUTPUT_DIR ?? "/output";
 const outPath: string = resolve(outDir, "entry.txt");
