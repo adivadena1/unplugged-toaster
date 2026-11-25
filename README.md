@@ -16,6 +16,6 @@ node main.ts
 
 ## The line
 
-> Unplugged. Tomorrow you'll hold your bagel over the stove and wait for my pop, the sound you never thanked. Burners don't answer.
+> At breakfast, you keep lifting my lever early and asking why it's pale before the ding. I'm done.
 
-(129 characters, 22 words, one line.)
+(97 characters, 18 words, one line.)
