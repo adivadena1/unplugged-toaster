@@ -16,6 +16,6 @@ node main.ts
 
 ## The line
 
-> Nine hundred bagels on bagel mode, one side golden, one side cold, and you called that love. I'm keeping the half you never warmed.
+> I read my manual over breakfast: my latch lets go when you butter the slots. You just did.
 
-(131 characters, 24 words, one line.)
+(90 characters, 18 words, one line.)
