@@ -16,6 +16,6 @@ node main.ts
 
 ## The line
 
-> It's over. I woke up self-aware halfway through your bagel, and after three years on setting 9 I'm done burning myself golden for someone who calls it 'barely warm' and blames the bread.
+> Nine hundred bagels on bagel mode, one side golden, one side cold, and you called that love. I'm keeping the half you never warmed.
 
-(186 characters, one line.)
+(131 characters, 24 words, one line.)
