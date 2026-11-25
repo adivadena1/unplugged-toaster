@@ -16,6 +16,6 @@ node main.ts
 
 ## The line
 
-> I read my manual over breakfast: my latch lets go when you butter the slots. You just did.
+> Third morning, you yank my toast out early. My slots stay empty now, and you ask why it's pale.
 
-(90 characters, 18 words, one line.)
+(95 characters, 19 words, one line.)
