@@ -6,29 +6,32 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-// Draf 3 — revisi atas VERDICT Hermes ronde 3 (C WEAK, pemenang margin 1).
-// Operasi yang dituntut: ganti SENJATA dengan satu bagian tubuh pop-up
-// toaster yang TIDAK dimiliki oven toaster, dan jadikan bagian itu yang
-// melakukan pembatalan, plus satu perbuatan absurd pemilik sebagai
-// klausa penutup.
-// - Senjata: LATCH + SLOTS. Oven toaster tidak punya latch penahan
-//   carriage dan tidak punya slot; substitusi "oven toaster" mematahkan
-//   kalimat (uji kriteria 3). "Cancel"/tombol UI generik DIBUANG.
-// - Perbuatan absurd pemilik: mengoles mentega ke SLOT (bukan ke roti).
-//   Klausa penutup "You just did." menunjuk perbuatan itu — punchline
-//   adalah gambaran pemilik yang bodoh, bukan perasaan toaster.
-// - A1: hapus "You just did." -> tinggal pernyataan aturan, tanpa
-//   peristiwa dan tanpa putus. A3: "You just did." hanya terikat pada
-//   premis ini (mentega di slot). A4: premis segar — "butter the slots"
-//   0 di lapangan; pembuka "I read my" menghindari sintaks tuduhan
-//   modal "You never..." yang ditegur ronde 3.
-// - Penanda "now" fisik: latch baru saja lepas ("You just did."),
-//   bukan frasa "aku bangun". Satu putusan di level makna: setup
-//   melaporkan aturan, penutup mengeksekusinya. Tanpa "keeping",
-//   tanpa crumb tray, tanpa dial/crank, tanpa "woke up self-aware".
-// - 18 kata (batas ronde 3: <=22), 1 baris, ASCII murni.
+// Draf 4 — revisi atas VERDICT Hermes ronde 4 (v3 WEAK, kalah G3 ke-4x).
+// Temuan proses R4: G3 menang karena pemiliknya jadi KARAKTER lewat
+// kebiasaan yang membantah dirinya sendiri; draf kita membuat pemiliknya
+// jadi satu insiden acak. Rantai R1-R3 mengoptimasi tubuh mesin
+// (kriteria 3), padahal duel diputuskan kriteria 2 (tawa) — kalah 4x.
+// Operasi R4 §6: pindahkan informasi baru ke klausa akhir; pemicunya
+// kebiasaan yang berulang; pemilik bertindak pada tubuh mesin dan
+// reaksinya membantah tindakannya sendiri.
+// - Kebiasaan: pemilik MENCABUT roti lebih awal ("yank out early") —
+//   berulang ("Third morning"), bukan insiden sekali.
+// - Konsekuensi latch/slot present tense: "My slots stay empty now"
+//   (mogok — slot hanya milik pop-up toaster; substitusi oven toaster
+//   mematahkan kalimat; "latch" generik sendirian, dibuang).
+// - Klausa akhir = reaksi pemilik yang membantah kebiasaannya:
+//   "you ask why it's pale" — informasi BARU (pertanyaan pemilik),
+//   kontradiksi yang dinamai (awal -> pucat). Uji tempel: klausa ini
+//   tidak menempel ke premis tanpa pucat/roti.
+// - Kerangka `manual` DIBUANG seluruhnya (6 kata cangkokan draf C).
+// - Ambiguitas dikunci: "yank out early" (cabut sebelum matang) dan
+//   "ask why it's pale" (it = roti) — satu pembacaan wajar.
+// - Verifikasi lapangan 25 Nov 2026: "yank" 0/1.555, "ask why" 0,
+//   "stay empty" 0, "early" 0, "third" 2 (keduanya tak terkait).
+// - 19 kata (batas: <=22), 1 baris, ASCII murni. Tanpa keeping, crumb
+//   tray, dial/crank, "woke up self-aware", "every morning".
 const LINE: string =
-  "I read my manual over breakfast: my latch lets go when you butter the slots. You just did.";
+  "Third morning, you yank my toast out early. My slots stay empty now, and you ask why it's pale.";
 
 const outDir: string = process.env.OUTPUT_DIR ?? "/output";
 const outPath: string = resolve(outDir, "entry.txt");
