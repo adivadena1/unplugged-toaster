@@ -6,45 +6,42 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-// Draf 6 — PREMIS BARU atas VERDICT Hermes ronde 6 (keluarga
-// "habit + hipokrisi pemilik + severance" dinyatakan HABIS: v5 adalah
-// transposisi sintaksis G3, bukan saingan). Arah baru R6 §5/§7: toaster
-// SUDAH dicabut, berbicara dari seberang meja tentang BESOK PAGI.
-// - Waktu MAJU, bukan retrospektif: keenam draf sebelumnya + G1/G2/G3
-//   semuanya menagih masa lalu. V6 menagih besok.
-// - Severance di kata PERTAMA ("Unplugged.") sebagai fakta yang sudah
-//   terjadi — bukan tag di ujung (v5) dan bukan status siklus (kata itu
-//   berdiri sendiri sebagai kalimat putus). Judul bounty dipakai sebagai
-//   PREMIS LITERAL, bukan perancah dari luar teks (masalah v4, R5 §2.5).
-// - Dua keluhan berbeda (diagnosis R6: G3 menang karena punya dua,
-//   v5 mengulang satu keluhan tiga kali): (1) pemilik akan memanggang
-//   di atas kompor (improvisasi salah alat); (2) ia menunggu "pop" yang
-//   tak akan datang + suara yang tak pernah ia syukuri.
-// - Alasan pergi (kriteria 4): "the sound you never thanked" —
-//   pengabaian konkret, sekali baca (seperti "never once said thank
-//   you" di G1, yang dinilai konkret).
-// - Tubuh yang BEKERJA: "my pop" — bunyi/aksi pop-up, hanya milik
-//   pop-up toaster. Oven toaster tidak "pop" (ia ding/buzz); padanan
-//   oven toaster dari "pop" tidak ada, jadi substitusi mematahkan
-//   kalimat DAN mematikan lelucon (uji R6 §5.2 — dibuktikan lewat
-//   padanan, bukan nama benda).
-// - Klausa akhir "Burners don't answer." — informasi BARU (koreksi
-//   deadpan: kompor bukan penanggap), terikat pada premis kompor+pop.
-//   Uji tempel: premis "set me to 1" / "pull the plug halfway" tidak
-//   punya kompor — klausa itu nonsense di sana.
-// - Verifikasi lapangan 25 Nov 2026 (FIELD-EVIDENCE.md): "tomorrow" 0,
-//   "stove" 0, "burner" 0, "answer" 0, "thanked" 4; "pop" 61 (kata umum
-//   — "popped up"/"pop up" sebagai verba; "my pop" sebagai nomina yang
-//   dimiliki adalah pemakaian berbeda); "unplugged" 666 — JUJUR DICATAT:
-//   hampir semua adalah judul malas bernama bounty; sebagai kata putus
-//   di awal LINE, pemakaiannya adalah premis literal yang diusulkan R6.
-//   "breakfast" 33 (lubang bukti R6 §6 #6 kini ditutup — v6 tidak
-//   memakai kata itu).
-// - 22 kata (batas <=22, tepat di batas), 1 baris, ASCII murni. Tanpa
-//   keeping, crumb tray, dial/crank, "woke up self-aware", manual,
-//   bagel mode, "every morning". Tanpa kata isi yang berulang.
+// Draf 5 — revisi atas VERDICT Hermes ronde 5 (v4 WEAK, 12/25, kalah G3
+// ke-5x). Operasi R5 §8, satu operasi: hapus klausa keadaan, rapatkan
+// perbuatan->kontradiksi tanpa penyela, frekuensi TAK BERBATAS, severance
+// eksplisit murah, slots hanya bila bekerja.
+// - Klausa keadaan DIBUANG ("My slots stay empty now" membunuh anteseden
+//   klausa akhir — kontradiksi kelas v1; slot kosong = keadaan default).
+// - Perbuatan + kontradiksi bersebelahan, satu subjek, satu napas:
+//   "you keep lifting my lever early and asking why it's pale before
+//   the ding" — verba 1 (lifting) -> verba 2 (asking), tanpa penyela.
+// - Frekuensi tak berbatas: "keep + -ing" (bukan "every morning" milik
+//   G3, bukan "Third morning" berbatas). Jujur dicatat: kata "keep"
+//   muncul 50x di lapangan — tapi hampir semua sebagai template
+//   "Keep the Crumbs" (imperatif + objek), BUKAN konstruksi habit
+//   "keep + -ing". Risiko echo dicatat, bukan disembunyikan.
+// - Severance eksplisit murah: "I'm done." (2 kata). Tanpa itu v4
+//   mencetak 0 token putus (R5 §7 #3).
+// - Tubuh yang BEKERJA: LEVER. Pemilik mengangkat tuas untuk
+//   mengeluarkan roti lebih awal — tuas pop-up yang tidak dimiliki oven
+//   toaster; "slots" dibuang karena di v4 ia dekoratif (substitusi
+//   slots->racks tidak membunuh lelucon). "Lifting my lever" =
+//   perbuatan pada mekanisme, bukan pada roti.
+// - Pengikat waktu "before the ding": roti dinilai SEBELUM siklus
+//   selesai — hanya masuk akal bila roti dicabut lebih awal. Inilah
+//   yang membuat klausa akhir terikat pada premis ini (uji tempel R5:
+//   premis "set me to 1" dan "pull the plug halfway" TIDAK bisa
+//   memakai "before the ding" — roti mereka selesai/dicabut tanpa ding
+//   yang ditunggu).
+// - Verifikasi lapangan 25 Nov 2026 (FIELD-EVIDENCE.md): "lift"/"lifting"
+//   0/1.555, "before the ding" 0, "ask why" 0, "yank" 0, "early" 0;
+//   "lever" 67 (kata umum — kesegarannya pada PERBUATAN "lifting early",
+//   bukan pada kata), "ding" 6, "morning" 56, "toast" 857 (kata tema —
+//   tak terhindarkan), "pale" 7, "slots" 8, "done" 41.
+// - 18 kata (batas <=22), 1 baris, ASCII murni. Tanpa keeping, crumb
+//   tray, dial/crank, "woke up self-aware", manual, bagel mode.
 const LINE: string =
-  "Unplugged. Tomorrow you'll hold your bagel over the stove and wait for my pop, the sound you never thanked. Burners don't answer.";
+  "At breakfast, you keep lifting my lever early and asking why it's pale before the ding. I'm done.";
 
 const outDir: string = process.env.OUTPUT_DIR ?? "/output";
 const outPath: string = resolve(outDir, "entry.txt");
