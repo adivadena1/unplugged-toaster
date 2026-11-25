@@ -16,6 +16,6 @@ node main.ts
 
 ## The line
 
-> Third morning, you yank my toast out early. My slots stay empty now, and you ask why it's pale.
+> At breakfast, you keep lifting my lever early and asking why it's pale before the ding. I'm done.
 
-(95 characters, 19 words, one line.)
+(97 characters, 18 words, one line.)
